@@ -4,6 +4,25 @@ Web pública y panel administrativo para la repostería Cal y Canto.
 
 **Documentación completa:** [docs/](./docs/README.md)
 
+## Desarrollo de features (OpenSpec)
+
+Las especificaciones y el plan de implementación se gestionan en el hub central **[cal-y-canto-agent-docs](https://github.com/Cal-y-canto-reposteria/cal-y-canto-agent-docs)** con [OpenSpec](https://www.npmjs.com/package/@fission-ai/openspec).
+
+| Paso | Dónde | Acción |
+|------|--------|--------|
+| Diseño | `cal-y-canto-agent-docs` | `/opsx:propose <nombre>` — genera proposal, specs, design y tasks |
+| Código | Este repo (`frontend-cal-y-canto`) | `/opsx:apply` — tareas marcadas `[frontend]` |
+| Cierre | `cal-y-canto-agent-docs` | `/opsx:archive <nombre>` |
+
+**Guía completa:** [docs/openspec-guide.md](https://github.com/Cal-y-canto-reposteria/cal-y-canto-agent-docs/blob/main/docs/openspec-guide.md) — conducto regular, comandos CLI, reglas de apply/archive y capacidades del framework.
+
+Ramas multi-repo (desde el hub):
+
+```bash
+cd ../cal-y-canto-agent-docs
+./scripts/branch-all feature/<nombre-change> --create
+```
+
 ## Stack
 
 - React 19 + TypeScript + Vite
