@@ -1,17 +1,63 @@
+import { lazy } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { AuthGuard } from '@/modules/guards/auth-guard'
-import { AdminLayout } from '@/modules/admin/layout/admin-layout'
-import { LoginPage } from '@/modules/admin/pages/login-page'
-import { DashboardPage } from '@/modules/admin/pages/dashboard-page'
-import { RecipesPage } from '@/modules/admin/pages/recipes-page'
-import { CostsPage } from '@/modules/admin/pages/costs-page'
-import { AccountingPage } from '@/modules/admin/pages/accounting-page'
-import { ContactsPage } from '@/modules/admin/pages/contacts-page'
-import { PublicLayout } from '@/modules/public/layout/public-layout'
-import { HomePage } from '@/modules/public/pages/home-page'
-import { ProductsPage } from '@/modules/public/pages/products-page'
-import { ContactPage } from '@/modules/public/pages/contact-page'
-import { RoutePathEnum } from '@/routes/route-path.enum'
+import { AdminLayout } from '@common/layout/admin-layout'
+import { PublicLayout } from '@common/layout/public-layout'
+import { AuthGuard } from '@common/guards/auth-guard'
+import { RoutePathEnum } from '@routes/route-path.enum'
+
+const HomePage = lazy(() =>
+  import('@modules/home/adapters/input/home-page/home-page').then((module) => ({
+    default: module.HomePage,
+  })),
+)
+
+const ProductsPage = lazy(() =>
+  import('@modules/products/adapters/input/products-page/products-page').then((module) => ({
+    default: module.ProductsPage,
+  })),
+)
+
+const ContactPage = lazy(() =>
+  import('@modules/contact/adapters/input/contact-page/contact-page').then((module) => ({
+    default: module.ContactPage,
+  })),
+)
+
+const LoginPage = lazy(() =>
+  import('@modules/auth/adapters/input/login-page/login-page').then((module) => ({
+    default: module.LoginPage,
+  })),
+)
+
+const DashboardPage = lazy(() =>
+  import('@modules/dashboard/adapters/input/dashboard-page/dashboard-page').then(
+    (module) => ({ default: module.DashboardPage }),
+  ),
+)
+
+const RecipesPage = lazy(() =>
+  import('@modules/recipes/adapters/input/recipes-page/recipes-page').then((module) => ({
+    default: module.RecipesPage,
+  })),
+)
+
+const CostsPage = lazy(() =>
+  import('@modules/costs/adapters/input/costs-page/costs-page').then((module) => ({
+    default: module.CostsPage,
+  })),
+)
+
+const AccountingPage = lazy(() =>
+  import('@modules/accounting/adapters/input/accounting-page/accounting-page').then(
+    (module) => ({ default: module.AccountingPage }),
+  ),
+)
+
+const ContactsPage = lazy(() =>
+  import('@modules/contacts/adapters/input/contacts-page/contacts-page').then(
+    (module) => ({ default: module.ContactsPage }),
+  ),
+)
 
 export const router = createBrowserRouter([
   {
