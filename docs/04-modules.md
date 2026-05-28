@@ -9,7 +9,7 @@ Cada carpeta en `src/modules/` es un **bounded context**. La tabla indica el est
 | `contact` | `/contacto` | No | No | Formulario de contacto (UI) |
 | `auth` | `/panel/login` | Sí | Sí (POST login) | JWT con mock y HTTP |
 | `dashboard` | `/panel` | No | No | Placeholder admin |
-| `recipes` | `/panel/recetas` | No | No | Placeholder admin |
+| `recipes` | `/panel/recetas` | Sí | Sí (CRUD) | Admin recetas con mock y HTTP |
 | `costs` | `/panel/costos` | No | No | Placeholder admin |
 | `accounting` | `/panel/contabilidad` | No | No | Placeholder admin |
 | `contacts` | `/panel/contactos` | No | No | Placeholder admin |

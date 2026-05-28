@@ -157,9 +157,16 @@ Módulos con endpoints en el backend pero sin cliente HTTP en el frontend:
 
 | Módulo | Endpoint backend | Respuesta actual |
 |--------|-----------------|------------------|
-| `recipes` | `GET /recipes` | `{ message: "Recipes module ready for implementation" }` |
 | `costs` | `GET /costs` | `{ message: "Costs module ready for implementation" }` |
 | `accounting` | `GET /accounting` | `{ message: "Accounting module ready for implementation" }` |
 | `contacts` | `GET /contacts` | `{ message: "Contacts module ready for implementation" }` |
 
-Todos requieren Bearer JWT. Al implementar, añadir repositorio HTTP siguiendo el patrón de `products` y registrar en `DIProvider`.
+Todos requieren Bearer JWT. Al implementar, añadir repositorio HTTP siguiendo el patrón de `products` o `recipes` y registrar en `DIProvider`.
+
+## Módulo `recipes`
+
+- **Modelo:** `RecipeModel` — `id`, `name`, `description?`, `ingredients`, `steps`, `isActive`.
+- **Servicio:** `RecipesService` — `findAll`, `findById`, `create`, `update`, `remove` (token explícito).
+- **Repositorios:** `RecipesHttpRepository` / `RecipesRepositoryMock` (3 recetas seed).
+- **UI:** `RecipesPage` en `/panel/recetas` — tabla, formulario crear/editar, diálogo eliminar.
+- **Hook DI:** `useRecipeServices()`.
